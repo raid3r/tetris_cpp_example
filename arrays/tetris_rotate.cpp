@@ -1,20 +1,6 @@
 #include "tetris_game.h"
 
 
-void rotate(Figure& f) {
-	switch (f.type)
-	{
-	case T_FIGURE:
-		rotateIFugure(f);
-		break;
-	case I_FIGURE:
-		rotateIFugure(f);
-		break;
-	default:
-		break;
-	}
-}
-
 void moveLeft(Figure& f) {
 	for (size_t i = 0; i < 4; i++)
 	{
@@ -36,6 +22,21 @@ void moveDown(Figure& f) {
 	}
 }
 
+void rotate(Figure& f) {
+	switch (f.type)
+	{
+	case T_FIGURE:
+		rotateIFugure(f);
+		break;
+	case I_FIGURE:
+		rotateIFugure(f);
+		break;
+	case O_FIGURE:
+		break;
+	default:
+		break;
+	}
+}
 
 
 void rotateIFugure(Figure& f) {

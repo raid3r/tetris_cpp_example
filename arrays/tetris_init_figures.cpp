@@ -37,15 +37,34 @@ Figure initIFigure() {
 	return f;
 }
 
+Figure initOFigure() {
+	Figure f;
+	/*
+	* 0123456 X
+	0     XX
+	1     XX
+	Y
+	*/
+	f.points[0] = { 4,0 };
+	f.points[1] = { 5,0 };
+	f.points[2] = { 4,1 };
+	f.points[3] = { 5,1 };
+	f.color = Yellow;
+	f.state = 1;
+	f.type = O_FIGURE;
+	return f;
+}
 
 
 Figure getRandomFigure() {
-	switch (rand() % 2)
+	switch (rand() % 3)
 	{
 	case 0:
 		//return initTFigure();
 	case 1:
 		return initIFigure();
+	case 2: 
+		return initOFigure();
 	default:
 		break;
 	}
