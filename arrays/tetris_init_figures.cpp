@@ -60,13 +60,12 @@ Figure getRandomFigure() {
 	switch (rand() % 3)
 	{
 	case 0:
-		//return initTFigure();
-	case 1:
-		//return initIFigure();
-	case 2: 
-		//return initOFigure();
-	default:
 		return initTFigure();
+	case 1:
+		return initIFigure();
+	case 2: 
+		return initOFigure();
+	default:
 		break;
 	}
 }
