@@ -16,6 +16,9 @@ void game() {
 		int timer = timerTime;
 		int tick = 50;
 
+		SetCursorPosition(15, 3);
+		cout << "Points: " << points;
+
 		printFigure(f);
 
 		while (true)

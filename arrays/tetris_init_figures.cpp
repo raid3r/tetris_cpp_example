@@ -43,7 +43,7 @@ Figure getRandomFigure() {
 	switch (rand() % 2)
 	{
 	case 0:
-		return initTFigure();
+		//return initTFigure();
 	case 1:
 		return initIFigure();
 	default:

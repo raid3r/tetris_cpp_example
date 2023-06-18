@@ -66,4 +66,37 @@ void putOnField(const Figure& f) {
 		field[f.points[i].x][f.points[i].y].full = true;
 		field[f.points[i].x][f.points[i].y].color = f.color;
 	}
+	clearRows();
 }
+
+void replaceWithUpperRow(const int y) {
+	for (size_t x = 0; x < FIELD_COLS; x++)
+	{
+		field[x][y].full = field[x][y - 1].full;
+		field[x][y].color = field[x][y - 1].color;
+	}
+}
+
+void clearRows() {
+	for (size_t y = FIELD_ROWS - 1; y > 0; y--)
+	{
+		bool isRowFull = true;
+		for (size_t x = 0; x < FIELD_COLS; x++)
+		{
+			isRowFull = isRowFull && field[x][y].full;
+			if (!isRowFull) {
+				break;
+			}
+		}
+
+		if (isRowFull) {
+			points += 10;
+			for (size_t removeY = y; removeY > 0; removeY--)
+			{
+				replaceWithUpperRow(removeY);
+			}
+			y++;
+		}
+	}
+}
+

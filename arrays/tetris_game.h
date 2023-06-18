@@ -30,6 +30,8 @@ const int FIELD_COLS = 10;
 
 extern FieldCell field[FIELD_COLS][FIELD_ROWS];
 
+extern int points;
+
 void initFileld();
 
 void drawFieldFrame();
@@ -61,5 +63,10 @@ void printFigure(Figure f);
 
 
 Figure getRandomFigure();
+
+
+void replaceWithUpperRow(const int y);
+
+void clearRows();
 
 void game();

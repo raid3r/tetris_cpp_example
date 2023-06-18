@@ -7,6 +7,7 @@
 using namespace std;
 
 FieldCell field[FIELD_COLS][FIELD_ROWS];
+int points = 0;
 
 void main() {
 	srand(time(NULL));
