@@ -1,5 +1,5 @@
 #include "tetris_game.h"
-
+#include <conio.h>
 using namespace std;
 
 void game() {
@@ -128,7 +128,7 @@ void printFigure(Figure f) {
 	for (size_t i = 0; i < 4; i++)
 	{
 		SetCursorPosition(f.points[i].x + 1, f.points[i].y + 1);
-		cout << "X";
+		cout << i;
 	}
 	SetColor(White, Black);
 }

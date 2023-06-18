@@ -26,7 +26,7 @@ void rotate(Figure& f) {
 	switch (f.type)
 	{
 	case T_FIGURE:
-		rotateIFugure(f);
+		rotateTFugure(f);
 		break;
 	case I_FIGURE:
 		rotateIFugure(f);
@@ -80,20 +80,9 @@ void rotateIFugure(Figure& f) {
 //TODO states
 void rotateTFugure(Figure& f) {
 	/*
-	* 1
-	012
-	3
-	2
-	0
-	31
-	2
-	3
-	3
-	210
-	4
-	0
-	13
-	2
+	* 
+	* 
+	* 
 	*/
 	switch (f.state)
 	{
@@ -106,10 +95,30 @@ void rotateTFugure(Figure& f) {
 		f.state = 2;
 		break;
 	case 2:
+		f.points[0].x++;
+		f.points[0].y++;
+		f.points[2].x--;
+		f.points[2].y--;
+		f.points[3].x++;
+		f.points[3].y--;
+		f.state = 3;
 		break;
 	case 3:
+		f.points[0].x--;
+		f.points[0].y++;
+		f.points[2].x++;
+		f.points[2].y--;
+		f.points[3].x++;
+		f.points[3].y++;
+		f.state = 4;
 		break;
 	case 4:
+		f.points[0].x--;
+		f.points[0].y-=2;
+		f.points[1].y--;
+		f.points[2].x++;
+		f.points[3].x--;
+		f.state = 1;
 		break;
 	default:
 		break;

@@ -62,10 +62,11 @@ Figure getRandomFigure() {
 	case 0:
 		//return initTFigure();
 	case 1:
-		return initIFigure();
+		//return initIFigure();
 	case 2: 
-		return initOFigure();
+		//return initOFigure();
 	default:
+		return initTFigure();
 		break;
 	}
 }
