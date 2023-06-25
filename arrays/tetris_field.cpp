@@ -18,9 +18,9 @@ void drawFieldFrame() {
 	{
 		for (size_t y = 0; y < FIELD_ROWS + 2; y++) {
 			if (x == 0 || x == FIELD_COLS + 1 || y == FIELD_ROWS + 1) {
-				SetCursorPosition(x, y);
+				SetCursorPosition(x * 2, y);
 				SetColor(White, DarkGray);
-				cout << " ";
+				cout << "  ";
 			}
 		}
 	}
@@ -38,8 +38,8 @@ void drawField() {
 			else {
 				SetColor(White, Black);
 			}
-			SetCursorPosition(x + 1, y + 1);
-			cout << " ";
+			SetCursorPosition((x + 1) * 2, y + 1);
+			cout << "  ";
 		}
 	}
 	SetColor(White, Black);

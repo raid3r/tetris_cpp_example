@@ -3,9 +3,10 @@
 #include "work_with_console.h"
 
 
+
 //Structures
 enum FigureType {
-	T_FIGURE, I_FIGURE, O_FIGURE
+	T_FIGURE, I_FIGURE, O_FIGURE, L_FIGURE, J_FIGURE, S_FIGURE, Z_FIGURE
 };
 
 struct Point {
@@ -44,6 +45,8 @@ bool canPlaceOnField(const Figure& f);
 void putOnField(const Figure& f);
 void replaceWithUpperRow(const int y);
 void clearRows();
+void drawFrame(int posX, int posY, int width, int height, ConsoleColor color);
+void showMessage(std::string text, ConsoleColor textColor, ConsoleColor frameColor);
 
 // Tools
 Figure cloneFigure(Figure f);
@@ -60,10 +63,17 @@ Figure getRandomFigure();
 Figure initTFigure();
 Figure initIFigure();
 Figure initOFigure();
+Figure initLFigure();
+Figure initJFigure();
+Figure initSFigure();
+Figure initZFigure();
 
 // Rotate
 void rotate(Figure& f);
 void rotateIFugure(Figure& f);
 void rotateTFugure(Figure& f);
-
+void rotateLFugure(Figure& f);
+void rotateJFugure(Figure& f);
+void rotateSFugure(Figure& f);
+void rotateZFugure(Figure& f);
 

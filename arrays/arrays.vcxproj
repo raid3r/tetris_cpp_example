@@ -24,6 +24,7 @@
     <ProjectGuid>{e47c1e86-46ef-44bf-b4ef-a623d9328164}</ProjectGuid>
     <RootNamespace>arrays</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>tetris_game_cpp</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

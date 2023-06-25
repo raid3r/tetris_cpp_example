@@ -1,22 +1,59 @@
 #include "tetris_game.h"
+#include <conio.h>
 
 using namespace std;
 
+void drawFrame(int posX, int posY, int width, int height, ConsoleColor color) {
+	for (size_t x = posX; x < posX + width; x++)
+	{
+
+		for (size_t y = posY; y < posY + height; y++) {
+			SetCursorPosition(x, y);
+			if (x == posX || x == posX + width - 1 || y == posY || y == posY + height - 1) {
+				SetColor(White, color);
+				cout << " ";
+			}
+			else {
+				SetColor(White, Black);
+				cout << " ";
+			}
+		}
+	}
+	SetColor(White, Black);
+}
+
+void showMessage(string text, ConsoleColor textColor, ConsoleColor frameColor) {
+	drawFrame(10, 10, 25, 5, frameColor);
+	SetCursorPosition(12, 12);
+	SetColor(textColor, Black);
+	cout << text;
+	SetColor(White, Black);
+	_getch();
+	drawFrame(10, 10, 25, 5, Black);
+}
+
 void game() {
+
 	initFileld();
 	drawFieldFrame();
 	drawField();
 	Figure temp;
 
+
+
 	while (true)
 	{
 		Figure f = getRandomFigure();
+		if (!canPlaceOnField(f)) {
+			showMessage("GAME OVER", Red, Red);
+			break;
+		}
 
 		int timerTime = 500;
 		int timer = timerTime;
 		int tick = 50;
 
-		SetCursorPosition(15, 3);
+		SetCursorPosition(25, 3);
 		cout << "Points: " << points;
 
 		printFigure(f);
@@ -46,6 +83,13 @@ void game() {
 			if (key != NO_KEY) {
 				switch (key)
 				{
+				case ESC:
+					showMessage("PAUSE", Green, Green);
+					drawFieldFrame();
+					drawField();
+					printFigure(f);
+					break;
+
 				case DOWN_ARROW:
 					temp = cloneFigure(f);
 					moveDown(temp);
@@ -117,7 +161,7 @@ void clearFigure(Figure f) {
 	SetColor(White, Black);
 	for (size_t i = 0; i < 4; i++)
 	{
-		SetCursorPosition(f.points[i].x + 1, f.points[i].y + 1);
+		SetCursorPosition((f.points[i].x + 1) * 2, f.points[i].y + 1);
 		cout << " ";
 	}
 }
@@ -127,8 +171,8 @@ void printFigure(Figure f) {
 	SetColor(White, f.color);
 	for (size_t i = 0; i < 4; i++)
 	{
-		SetCursorPosition(f.points[i].x + 1, f.points[i].y + 1);
-		cout << i;
+		SetCursorPosition((f.points[i].x + 1) * 2, f.points[i].y + 1);
+		cout << "  ";
 	}
 	SetColor(White, Black);
 }

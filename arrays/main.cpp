@@ -10,6 +10,7 @@ FieldCell field[FIELD_COLS][FIELD_ROWS];
 int points = 0;
 
 void main() {
+	ShowConsoleCursor(false);
 	srand(time(NULL));
 	game();
 }
