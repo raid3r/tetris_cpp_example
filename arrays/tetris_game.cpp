@@ -60,6 +60,10 @@ void game() {
 
 		while (true)
 		{
+			if (points > 0) {
+				showMessage("YOU WIN !", White, Green);
+			}
+
 			Sleep(tick);
 			timer -= tick;
 			if (timer < 0) {
